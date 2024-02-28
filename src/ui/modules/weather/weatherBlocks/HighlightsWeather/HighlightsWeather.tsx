@@ -1,10 +1,10 @@
 import moment from 'moment';
 
-import { InfoBlock } from './components/InfoBlock';
+import { InfoBlock } from './InfoBlock';
 
 import { SUNRISE, SUNSET, WIND, HUMIDITY, KM, PROC } from './constants/highligthtsconstant';
 
-export const HighlightsBlock = ({ data }: any) => {
+export const HighlightsWeather = ({ data }: any) => {
     const sunrise = moment.unix(data.sys.sunrise).format('hh:mm A');
     const sunset = moment.unix(data.sys.sunset).format('hh:mm A');
     return (

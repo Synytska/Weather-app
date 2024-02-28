@@ -26,9 +26,11 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "src/ui/modules/search/Search.tsx",
-        "src/ui/components/FormatWeatherData.tsx"
-, "src/ui/modules/search/api.js", "src/ui/modules/search/Test.js"    ],
+        "src/ui/modules/trash/Search.tsx",
+        "src/ui/modules/trash/FormatWeatherData.tsx",
+        "src/ui/modules/trash/api.js",
+        "src/ui/modules/search/Search.tsx"
+    ],
     "exclude": ["node_modules"]
 }
 

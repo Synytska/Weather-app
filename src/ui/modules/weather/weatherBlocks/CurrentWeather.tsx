@@ -1,4 +1,4 @@
-export function TestWeather({ data }) {
+export function CurrentWeather({ data }: any) {
     return (
         <div className="border-solid w-[100%] bg-[#00361F] rounded-[20px] text-[white] p-6 h-[330px]">
             <div className="flex justify-between">

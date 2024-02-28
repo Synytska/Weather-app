@@ -1,55 +1,48 @@
 'use client';
 import { useState, useEffect } from 'react';
-// import { Search } from '../search/Search';
-import { Test } from '../search/Test';
-import { TestWeather } from '../search/TestWeather';
-import { HighlightsBlock } from '../weather-block/HighlightsBlock/HighlightsBlock';
-import { WEATHER_API_KEY, WEATHER_API_URL } from '../search/api';
-import { FetchDefaultApi } from '../../components/FetchDefaultApi';
+
+import { Search } from '../search/Search';
+import { CurrentWeather } from './weatherBlocks/CurrentWeather';
+import { HighlightsWeather } from './weatherBlocks/HighlightsWeather/HighlightsWeather';
+import { ForecastWeather } from './weatherBlocks/ForecastWeather';
+import { FetchDefaultWeather } from '../../components/FetchDefaultWeather';
+import { FetchWeather } from '../../components/FetchWeather';
+import { Fyi } from '../../components/Fyi';
 
 export const Weather = () => {
     const [curWeather, setCurWeather] = useState<any>(null);
     const [curForecast, setCurForecast] = useState<any>(null);
 
     const handleonSearchChange = async (searchData: any) => {
-        const [lat, lon] = searchData.value.split(' ');
-        try {
-            const currentWeatherResponse = await fetch(
-                `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
-            );
-            const forecastResponse = await fetch(
-                `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`
-            );
-
-            const currentWeatherData = await currentWeatherResponse.json();
-            const forecastData = await forecastResponse.json();
-
-            setCurWeather({ city: searchData.label, ...currentWeatherData });
-            setCurForecast({ city: searchData.label, ...forecastData });
-            console.log(curWeather)
-        } catch (error) {
-            console.error(error);
-        }
+        await FetchWeather(searchData, setCurWeather, setCurForecast);
     };
 
     useEffect(() => {
         const fetchData = async () => {
-            const defaultData = await FetchDefaultApi();
-            setCurWeather({ city: defaultData.name, ...defaultData });
+            const defaultData = await FetchDefaultWeather();
+            if (defaultData) {
+                setCurWeather({ city: defaultData.weather.name, ...defaultData.weather });
+                setCurForecast(defaultData.forecast);
+            } else {
+                console.error('Failed to fetch default weather data');
+            }
         };
         fetchData();
     }, []);
 
     return (
         <div className="my-[20px] mx-[30px]">
-            {/* <Search /> */}
-            <Test onSearchChange={handleonSearchChange} />
-            {curWeather && (
+            <Search onSearchChange={handleonSearchChange} />
+            {curWeather && curForecast && (
                 <div className="grid lg:grid-cols-2 gap-4 mt-8">
-                    <TestWeather data={curWeather} />
-                    <HighlightsBlock data={curWeather} />
+                    <div className="flex flex-col gap-4">
+                        <CurrentWeather data={curWeather} />
+                        <ForecastWeather data={curForecast} />
+                    </div>
+                    <HighlightsWeather data={curWeather} />
                 </div>
             )}
+            {/* <Fyi/> */}
         </div>
     );
 };
