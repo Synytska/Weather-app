@@ -5,10 +5,9 @@ import { useState, useEffect } from 'react';
 import { Search } from '../search/Search';
 import { CurrentWeather } from './weatherBlocks/CurrentWeather';
 import { HighlightsWeather } from './weatherBlocks/HighlightsWeather/HighlightsWeather';
-import { ForecastWeather } from './weatherBlocks/ForecastWeather';
+import { ForecastWeather } from './weatherBlocks/ForecastWeather/ForecastWeather';
 import { FetchWeather } from '../../components/FetchWeather';
 import { DEFAULT_WEATHER_API_URL, WEATHER_API_KEY } from '../../constants/apiconstants';
-import { Fyi } from '../../components/Fyi';
 import { OtherCitiesWeather } from './weatherBlocks/OtherCitiesWeather';
 
 export const Weather = () => {
@@ -41,11 +40,10 @@ export const Weather = () => {
                     </div>
                     <div>
                         <HighlightsWeather data={curWeather} />
-                        {/* <OtherCitiesWeather data={curWeather} /> */}
+                        <OtherCitiesWeather data={curWeather} />
                     </div>
                 </div>
             )}
-            {/* <Fyi/> */}
         </div>
     );
 };
