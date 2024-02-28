@@ -5,7 +5,7 @@ import { API_LINK, API_KEY } from '../../constants/apiconstants';
 import { useDebouncedCallback } from 'use-debounce';
 import { WeatherBlock } from './WeatherBlock';
 import { HighlightsBlock } from '../weather/weatherBlocks/HighlightsWeather/HighlightsWeather';
-import { FetchDefaultApi } from '../../components/FetchDefaultWeather';
+import { FetchDefaultApi } from './FetchDefaultWeather';
 import { formatWeatherData } from './FormatWeatherData';
 
 export const Search = () => {

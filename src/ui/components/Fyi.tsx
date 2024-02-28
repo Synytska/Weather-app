@@ -1,22 +1,31 @@
-'use client'
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const Fyi = () => {
     const [i, setI] = useState(null);
+
     const test = async () => {
         try {
-            const test = await axios.get(
-                'api.openweathermap.org/data/2.5/forecast/daily?q=Kyiv&appid=5e1dbfef74af01c8468028e63b0db4cb'
+            const prop = await axios.get(
+                'https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly&appid=5e1dbfef74af01c8468028e63b0db4cb'
             );
-            setI(test.data)
-            console.log(test.data);
+            const data = prop.data; // Виправлення тут
+            setI(data);
+            console.log(data.current.temp); // Тепер це повинно працювати
         } catch (error) {
             console.log(error);
             return null;
         }
     };
-    return(<><p>Hello</p>
-    <p>{i}</p></>)
-};
 
+    useEffect(() => {
+        test();
+    }, []);
+
+    return (
+        <>
+            <p>Hello</p>
+            <p>{i}</p>
+        </>
+    );
+};

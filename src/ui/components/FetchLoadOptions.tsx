@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { geoApiUrl, headers } from '../constants/apiconstants';
-import { FC } from 'react';
 
 interface City {
     latitude: number;

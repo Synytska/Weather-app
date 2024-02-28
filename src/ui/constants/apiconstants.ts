@@ -5,7 +5,7 @@ export const headers = {
     'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
 };
 
-export const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5';
-export const DEFAULT_WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather?q=Kyiv';
+export const WEATHER_API_URL = 'https://api.openweathermap.org/data/3.0';
+export const DEFAULT_WEATHER_API_URL = 'https://api.openweathermap.org/data/3.0/onecall?lat=50.4333&lon=30.5167';
 export const DEFAULT_FORECAST_API_URL = 'https://api.openweathermap.org/data/2.5/forecast?q=Kyiv';
 export const WEATHER_API_KEY = '5e1dbfef74af01c8468028e63b0db4cb';
