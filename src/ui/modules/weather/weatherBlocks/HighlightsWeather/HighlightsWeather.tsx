@@ -9,7 +9,7 @@ export const HighlightsWeather = ({ data }: any) => {
     const sunset = moment.unix(data.current.sunset).format('hh:mm A');
     return (
         <>
-            <div className="w-[100%] bg-[#00361F] rounded-[20px] text-[white] p-6 h-[450px]">
+            <div className="w-[100%] bg-[#00361F] rounded-[20px] text-[white] p-7">
                 <h1 className="text-[26px]">Today's Highlight</h1>
                 <div className="grid grid-cols-2 gap-5 mt-6">
                     <InfoBlock title={SUNRISE} info={sunrise} />

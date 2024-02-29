@@ -35,4 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# components
 src/ui/constants/apiconstants.ts
+src/ui/modules/trash

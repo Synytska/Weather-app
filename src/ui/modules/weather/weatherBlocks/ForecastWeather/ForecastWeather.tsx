@@ -12,7 +12,7 @@ export const ForecastWeather = ({ data }: any) => {
         <div className="w-[100%] bg-[#00361F] rounded-[20px] text-[white] p-6 flex flex-col justify-between gap-6 h-[400px]">
             <div className="text-[26px]">
                 <button
-                    className="hover:underline hover:scale-50 hover:ease-out active:underline transition duration-150"
+                    className="hover:underline hover:scale-15 hover:ease-in-out active:underline transition duration-50"
                     type="button"
                     onClick={() => TodayOnClick(true)}
                 >
