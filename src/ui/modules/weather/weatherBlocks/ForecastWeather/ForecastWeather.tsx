@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ForecastToday } from './ForecastToday';
-import { ForecastWeek } from '../ForecastWeek';
+import { ForecastWeek } from './ForecastWeek';
 
 export const ForecastWeather = ({ data }: any) => {
     const [isToday, setIsToday] = useState<boolean>(true);
@@ -9,10 +9,10 @@ export const ForecastWeather = ({ data }: any) => {
         setIsToday(isTrue);
     };
     return (
-        <div className="w-[100%] bg-[#00361F] rounded-[20px] text-[white] p-6 flex flex-col justify-between gap-6 h-[400px]">
+        <div className="w-[100%] bg-[#00361F] rounded-[20px] text-[white] p-6 flex flex-col justify-between gap-6 xl:h-[400px]">
             <div className="text-[26px]">
                 <button
-                    className="hover:underline hover:scale-15 hover:ease-in-out active:underline transition duration-50"
+                    className="hover:animate-pulse active:underline"
                     type="button"
                     onClick={() => TodayOnClick(true)}
                 >
@@ -20,7 +20,7 @@ export const ForecastWeather = ({ data }: any) => {
                 </button>
                 /
                 <button
-                    className="hover:underline hover:scale-50 hover:ease-out active:underline"
+                    className="hover:animate-pulse active:underline"
                     type="button"
                     onClick={() => TodayOnClick(false)}
                 >
