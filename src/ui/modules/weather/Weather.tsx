@@ -1,4 +1,5 @@
 'use client';
+import moment from 'moment';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -17,7 +18,7 @@ export const Weather = () => {
         await FetchWeather(searchData, setCurWeather);
     };
 
-    useEffect(() => {
+    useEffect(() => { 
         const fetchData = async () => {
             try {
                 const defaultWeather = await axios(`${DEFAULT_WEATHER_API_URL}&appid=${WEATHER_API_KEY}&units=metric`);
@@ -30,17 +31,18 @@ export const Weather = () => {
     }, []);
 
     return (
-        <div className="my-[20px] mx-[30px]">
+        <div>
+            <h1 className="text-whiteM pb-4">{moment().format('Do MMMM YYYY')}</h1>
             <Search onSearchChange={handleonSearchChange} />
             {curWeather && (
-                <div className="grid lg:grid-cols-2 gap-4 mt-8">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-8">
                     <div className="flex flex-col gap-4">
                         <CurrentWeather data={curWeather} />
                         <ForecastWeather data={curWeather} />
                     </div>
-                    <div>
+                    <div className='flex justify-between flex-col'>
                         <HighlightsWeather data={curWeather} />
-                        <OtherCitiesWeather data={curWeather} />
+                        <OtherCitiesWeather />
                     </div>
                 </div>
             )}

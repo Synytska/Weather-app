@@ -6,3 +6,7 @@ export const HUMIDITY = '\u{02602} Humidity';
 
 export const KM = 'km/h'
 export const PROC = '%'
+export const AM = 'Am'
+export const PM = 'Pm'
+
+
