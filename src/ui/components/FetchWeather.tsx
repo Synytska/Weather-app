@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { WEATHER_API_KEY, WEATHER_API_URL } from '../constants/apiconstants';
 
 export const FetchWeather = async (searchData: any, setCurWeather: any) => {
@@ -10,7 +11,7 @@ export const FetchWeather = async (searchData: any, setCurWeather: any) => {
         );
 
         const currentWeatherData = await currentWeatherResponse.data;
-        console.log(currentWeatherData)
+        console.log(currentWeatherData);
 
         setCurWeather({ city: searchData.label, ...currentWeatherData });
     } catch (error) {

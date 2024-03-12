@@ -8,8 +8,9 @@ import { CurrentWeather } from './weatherBlocks/CurrentWeather';
 import { HighlightsWeather } from './weatherBlocks/HighlightsWeather/HighlightsWeather';
 import { ForecastWeather } from './weatherBlocks/ForecastWeather/ForecastWeather';
 import { FetchWeather } from '../../components/FetchWeather';
-import { DEFAULT_WEATHER_API_URL, WEATHER_API_KEY } from '../../constants/apiconstants';
 import { OtherCitiesWeather } from './weatherBlocks/OtherCitiesWeather';
+
+import { DEFAULT_WEATHER_API_URL, WEATHER_API_KEY } from '../../constants/apiconstants';
 
 export const Weather = () => {
     const [curWeather, setCurWeather] = useState<any>(null);
@@ -18,7 +19,7 @@ export const Weather = () => {
         await FetchWeather(searchData, setCurWeather);
     };
 
-    useEffect(() => { 
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 const defaultWeather = await axios(`${DEFAULT_WEATHER_API_URL}&appid=${WEATHER_API_KEY}&units=metric`);
@@ -40,7 +41,7 @@ export const Weather = () => {
                         <CurrentWeather data={curWeather} />
                         <ForecastWeather data={curWeather} />
                     </div>
-                    <div className='flex justify-between flex-col'>
+                    <div className="flex justify-between flex-col">
                         <HighlightsWeather data={curWeather} />
                         <OtherCitiesWeather />
                     </div>

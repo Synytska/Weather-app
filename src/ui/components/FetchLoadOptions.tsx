@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { geoApiUrl, headers } from '../constants/apiconstants';
 
 interface City {
