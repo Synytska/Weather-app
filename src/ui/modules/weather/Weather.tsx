@@ -4,11 +4,11 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 import { Search } from '../search/Search';
-import { CurrentWeather } from './weatherBlocks/CurrentWeather';
+import { CurrentWeather } from './weatherBlocks/CurrentWeather/CurrentWeather';
 import { HighlightsWeather } from './weatherBlocks/HighlightsWeather/HighlightsWeather';
 import { ForecastWeather } from './weatherBlocks/ForecastWeather/ForecastWeather';
 import { FetchWeather } from '../../components/FetchWeather';
-import { OtherCitiesWeather } from './weatherBlocks/OtherCitiesWeather';
+import { OtherCitiesWeather } from './weatherBlocks/OtherCitiesWeather/OtherCitiesWeather';
 
 import { DEFAULT_WEATHER_API_URL, WEATHER_API_KEY } from '../../constants/apiconstants';
 
@@ -17,6 +17,7 @@ export const Weather = () => {
 
     const handleonSearchChange = async (searchData: any) => {
         await FetchWeather(searchData, setCurWeather);
+        console.log(searchData);
     };
 
     useEffect(() => {
@@ -38,11 +39,11 @@ export const Weather = () => {
             {curWeather && (
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-8">
                     <div className="flex flex-col gap-4">
-                        <CurrentWeather data={curWeather} />
-                        <ForecastWeather data={curWeather} />
+                        <CurrentWeather city={curWeather.city} timezone={curWeather.timezone} current={curWeather.current} daily={curWeather.daily}/>
+                        <ForecastWeather hourly={curWeather.hourly} daily={curWeather.daily} />
                     </div>
                     <div className="flex justify-between flex-col">
-                        <HighlightsWeather data={curWeather} />
+                        <HighlightsWeather current={curWeather.current} />
                         <OtherCitiesWeather />
                     </div>
                 </div>

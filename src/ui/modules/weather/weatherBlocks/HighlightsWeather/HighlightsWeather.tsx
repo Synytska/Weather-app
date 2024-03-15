@@ -1,24 +1,44 @@
 import moment from 'moment';
+import { FC } from 'react';
 
 import { InfoBlock } from './InfoBlock';
 
-import { SUNRISE, SUNSET, WIND, HUMIDITY, KM, PROC, AM, PM } from './constants/highligthtsconstant';
+import {
+    SUNRISE,
+    SUNSET,
+    WIND,
+    HUMIDITY,
+    KM,
+    PROC,
+    AM,
+    PM,
+    HOUR_FORMAT,
+    HIGH_TITLE
+} from './constants/highligthtsconstant';
 
-export const HighlightsWeather = ({ data }: any) => {
-    const sunrise = moment.unix(data.current.sunrise).format('hh:mm');
-    const sunset = moment.unix(data.current.sunset).format('hh:mm');
+interface IHighlights {
+    current: {
+        sunrise: number;
+        sunset: number;
+        wind_speed: number;
+        humidity: number;
+    };
+}
+
+export const HighlightsWeather: FC<IHighlights> = ({ current }) => {
+    const sunrise = moment.unix(current.sunrise).format(HOUR_FORMAT);
+    const sunset = moment.unix(current.sunset).format(HOUR_FORMAT);
     return (
         <>
-            <div className="w-[100%] bg-gradient-radial rounded-[20px] text-whiteM p-7">
-                <h1 className="text-[26px]">Today's Highlight</h1>
+            <div className="wrapper bg-gradient-radial">
+                <h1 className="text-[26px]">{HIGH_TITLE}</h1>
                 <div className="grid grid-cols-2 gap-5 mt-6">
                     <InfoBlock title={SUNRISE} info={sunrise} size={AM} />
                     <InfoBlock title={SUNSET} info={sunset} size={PM} />
-                    <InfoBlock title={WIND} info={Math.trunc(data.current.wind_speed)} size={KM} />
-                    <InfoBlock title={HUMIDITY} info={data.current.humidity} size={PROC} />
+                    <InfoBlock title={WIND} info={Math.trunc(current.wind_speed)} size={KM} />
+                    <InfoBlock title={HUMIDITY} info={current.humidity} size={PROC} />
                 </div>
             </div>
         </>
     );
 };
-

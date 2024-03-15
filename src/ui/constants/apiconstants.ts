@@ -10,3 +10,4 @@ export const DEFAULT_WEATHER_API_URL = 'https://api.openweathermap.org/data/3.0/
 export const DUBAI_API_URL = 'https://api.openweathermap.org/data/3.0/onecall?lat=25.2697&lon=55.3094';
 export const NEW_YORK_API_URL = 'https://api.openweathermap.org/data/3.0/onecall?lat=40.7&lon=-74';
 export const WEATHER_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+export const WEATHER_ICON_URL = 'http://openweathermap.org/img/wn/';

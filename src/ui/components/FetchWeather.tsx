@@ -1,6 +1,14 @@
 import axios from 'axios';
+import { FC } from 'react';
 
 import { WEATHER_API_KEY, WEATHER_API_URL } from '../constants/apiconstants';
+
+interface IFetchWeather {
+    searchData: {
+        value?: [string, string];
+        label?: string;
+    };
+}
 
 export const FetchWeather = async (searchData: any, setCurWeather: any) => {
     const [lat, lon] = searchData.value.split(' ');
@@ -17,5 +25,5 @@ export const FetchWeather = async (searchData: any, setCurWeather: any) => {
     } catch (error) {
         console.error(error);
     }
-};
+}; 
 
