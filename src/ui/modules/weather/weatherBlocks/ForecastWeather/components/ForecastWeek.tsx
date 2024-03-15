@@ -3,25 +3,9 @@ import { FC } from 'react';
 import { ForecastFirstWrap } from './ForecastFirstWrap';
 import { ForecastSecondWrap } from './ForecastSecondWrap';
 
-import { TIME_FORMAT, WEATHER_TYPE } from '../constants/forecastconst';
+import { TIME_FORMAT } from '../constants/forecastconst';
 import { TOMORROW } from '@/src/ui/constants/mainconstants';
 import { IForecastWeek } from '@/src/ui/interfaces/interfaces';
-
-// interface IForecastDay {
-//     dt: number;
-//     temp: {
-//         min: number;
-//         max: number;
-//     };
-//     weather: {
-//         main: WEATHER_TYPE;
-//         icon: string;
-//     }[];
-// }
-
-// interface IForecastWeek {
-//     daily: IForecastDay[];
-// }
 
 export const ForecastWeek: FC<IForecastWeek> = ({ daily }) => {
     return (
