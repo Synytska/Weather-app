@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { BaseLayout } from '@/src/ui/components/BaseLayout';
+import { BaseLayout } from '@/src/common/components/BaseLayout';
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className='bg-blackM w-full'>
+            <body className="bg-blackM w-full">
                 <BaseLayout>{children}</BaseLayout>
             </body>
         </html>
