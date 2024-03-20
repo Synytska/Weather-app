@@ -42,7 +42,7 @@ export const CurrentWeather: FC<ICurrStatus> = ({ city, timezone, current, daily
                     <h1 className="text-[26px] capitalize">{WEATHER}</h1>
                     <p className="text-[14px]">{NOW}</p>
                 </div>
-                <div className="text-whiteM pb-4">{moment.unix(current.dt).tz(timezone).format(CURR_TIME_FORM)}</div>
+                <div className="text-whiteM pb-4 text-[18px]">Time: {moment.unix(current.dt).tz(timezone).format(CURR_TIME_FORM)}</div>
             </div>
 
             <div className="flex justify-between items-center">

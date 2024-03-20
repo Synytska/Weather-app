@@ -1,7 +1,6 @@
 'use client';
-import axios from 'axios';
 import moment from 'moment';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 
 import { Search } from '../search/Search';
 import { CurrentWeather } from './weatherBlocks/CurrentWeather/CurrentWeather';
@@ -13,6 +12,12 @@ import { FetchData } from '@/src/common/api/FetchData';
 import { IFetchCurWeather, ISearchData } from '../../common/interfaces/interfaces';
 import { DEFAULT_WEATHER_API_URL, WEATHER_API_KEY, WEATHER_API_URL } from '../../common/constants/apiconstants';
 import { WHOLE_DATE } from '@/src/common/constants/mainconstants';
+import {
+    CurrentWeatherSceleton,
+    ForecastSceleton,
+    HighlightsSceleton,
+    OtherCitiesSceleton
+} from '@/src/common/utils/sceletons';
 
 export const Weather = () => {
     const [curWeather, setCurWeather] = useState<IFetchCurWeather | null>(null);
@@ -38,17 +43,26 @@ export const Weather = () => {
 
     return (
         <div>
-            <h1 className="text-whiteM pb-4">{moment().format(WHOLE_DATE)}</h1>
+            <h1 className="text-whiteM pb-4 text-[18px]">{moment().format(WHOLE_DATE)}</h1>
             <Search onSearchChange={handleonSearchChange} />
+
             {curWeather && (
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-8">
                     <div className="flex flex-col gap-4">
-                        <CurrentWeather {...curWeather} />
-                        <ForecastWeather daily={curWeather.daily} hourly={curWeather.hourly} />
+                        <Suspense fallback={<CurrentWeatherSceleton />}>
+                            <CurrentWeather {...curWeather} />
+                        </Suspense>
+                        <Suspense fallback={<ForecastSceleton />}>
+                            <ForecastWeather daily={curWeather.daily} hourly={curWeather.hourly} />
+                        </Suspense>
                     </div>
                     <div className="flex justify-between flex-col">
-                        <HighlightsWeather current={curWeather.current} />
-                        <OtherCitiesWeather />
+                        <Suspense fallback={<HighlightsSceleton />}>
+                            <HighlightsWeather current={curWeather.current} />
+                        </Suspense>
+                        <Suspense fallback={<OtherCitiesSceleton />}>
+                            <OtherCitiesWeather />
+                        </Suspense>
                     </div>
                 </div>
             )}

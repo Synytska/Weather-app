@@ -2,7 +2,6 @@ import axios from 'axios';
 import { AxiosError } from 'axios';
 
 import { ISearchData } from '../interfaces/interfaces';
-import { FetchData } from './FetchData';
 import { WEATHER_API_KEY, WEATHER_API_URL } from '../constants/apiconstants';
 
 interface ServerResponseData {

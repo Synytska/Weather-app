@@ -17,7 +17,7 @@ export const ForecastToday: FC<IForecastWeek> = ({ daily, hourly }) => (
                         <p className="text-[18px]">{Math.trunc(hour.temp)} &#176;C</p>
                         <p>{hour.weather[0].main}</p>
                     </div>
-                ))}
+                ))} 
         </div>
         <ForecastSecondWrap main={daily[1].weather[0].main} max={daily[1].temp.max} day={TODAY} />
     </div>
