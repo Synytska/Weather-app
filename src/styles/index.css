@@ -4,11 +4,9 @@
 
 
 
-.background{
-    @apply border border-border_transp backdrop-blur;
-}
+
 .wrapper {
-    @apply w-[100%] bg-transp background rounded-[20px] text-whiteM p-6 flex flex-col justify-between;
+    @apply w-[100%] bg-transp border border-border_transp backdrop-blur rounded-[20px] text-whiteM p-6 flex flex-col justify-between;
 }
 .wrapper_forecast {
     @apply flex flex-col gap-6;
@@ -20,7 +18,7 @@
     @apply xl:border xl:border-[#1e1e1e85] xl:backdrop-blur rounded-full px-2 xl:py-4 grid justify-between justify-items-center grid-cols-4 xl:flex-col gap-0.5 xl:flex xl:justify-center items-center;
 }
 .forecast_details {
-    @apply flex flex-row justify-between background rounded-[20px] items-center p-4;
+    @apply flex flex-row justify-between border border-border_transp backdrop-blur rounded-[20px] items-center p-4;
 }
 .t15 {
     @apply text-[15px];

@@ -21,16 +21,6 @@
             "@/*": ["./*"]
         }
     },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        ".next/types/**/*.ts",
-        "src/modules/trash/Search.tsx",
-        "src/modules/trash/FormatWeatherData.tsx",
-        "src/modules/trash/api.js",
-        "src/modules/search/Search.tsx"
-    ],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
     "exclude": ["node_modules"]
 }
-
