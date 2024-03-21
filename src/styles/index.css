@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 .wrapper {
     @apply w-[100%] bg-transp border border-border_transp backdrop-blur rounded-[20px] text-whiteM p-6 flex flex-col justify-between;
 }
@@ -29,4 +26,3 @@
 .t36 {
     @apply text-[36px];
 }
-

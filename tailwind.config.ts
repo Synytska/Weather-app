@@ -17,7 +17,7 @@ module.exports = {
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(circle, rgba(0,80,34,1) 0%, rgba(0,54,31,1) 100%)',
-                sky: "url('/sky.jpg')"
+                sky: "url('/map.jpg')"
             }
         }
     },
