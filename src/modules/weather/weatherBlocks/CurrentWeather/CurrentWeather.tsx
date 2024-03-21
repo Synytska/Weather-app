@@ -32,7 +32,7 @@ interface ICurrStatus {
 export const CurrentWeather: FC<ICurrStatus> = ({ city, timezone, current, daily }) => {
     const cityTrunc = truncateOutput(city, 7);
     return (
-        <div className="wrapper bg-gradient-radial">
+        <div className="wrapper">
             <div className="flex flex-row justify-between items-start">
                 <div>
                     <div className="gap-1 flex flex-nowrap tracking-wide bg-whiteM text-blackM rounded-full py-1 px-4 text-[14px] mb-6">
@@ -42,7 +42,9 @@ export const CurrentWeather: FC<ICurrStatus> = ({ city, timezone, current, daily
                     <h1 className="text-[26px] capitalize">{WEATHER}</h1>
                     <p className="text-[14px]">{NOW}</p>
                 </div>
-                <div className="text-whiteM pb-4 text-[18px]">Time: {moment.unix(current.dt).tz(timezone).format(CURR_TIME_FORM)}</div>
+                <div className="text-whiteM pb-4 text-[18px]">
+                    Time: {moment.unix(current.dt).tz(timezone).format(CURR_TIME_FORM)}
+                </div>
             </div>
 
             <div className="flex justify-between items-center">

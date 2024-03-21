@@ -30,7 +30,7 @@ export const HighlightsWeather: FC<IHighlights> = ({ current }) => {
     const sunset = moment.unix(current.sunset).format(HOUR_FORMAT);
     return (
         <>
-            <div className="wrapper bg-gradient-radial">
+            <div className="wrapper">
                 <h1 className="text-[26px]">{HIGH_TITLE}</h1>
                 <div className="grid grid-cols-2 gap-5 mt-6">
                     <InfoBlock title={SUNRISE} info={sunrise} size={AM} />
