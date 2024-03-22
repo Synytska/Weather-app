@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { BackgroundLayout } from '@/src/common/components/BackgroundLayout';
 import { BaseLayout } from '@/src/common/components/BaseLayout';
 
 export const metadata: Metadata = {
@@ -15,10 +16,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className="bg-sky w-full">
+            <body className="bg-sky w-full bg-no-repeat bg-center bg-cover">
+                <BackgroundLayout />
                 <BaseLayout>{children}</BaseLayout>
             </body>
         </html>
     );
 }
-

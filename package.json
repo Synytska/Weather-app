@@ -19,6 +19,9 @@
     "react-accessible-accordion": "^5.0.0",
     "react-dom": "^18",
     "react-select-async-paginate": "^0.7.3",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles": "^3.3.0",
+    "tsparticles-slim": "^2.12.0",
     "use-debounce": "^10.0.0"
   },
   "devDependencies": {
