@@ -30,7 +30,7 @@ interface ICurrStatus {
 }
 
 export const CurrentWeather: FC<ICurrStatus> = ({ city, timezone, current, daily }) => {
-    const cityTrunc = truncateOutput(city, 7);
+    const cityTrunc = truncateOutput(city, 9);
     return (
         <div className="wrapper">
             <div className="flex flex-row justify-between items-start">
@@ -62,7 +62,7 @@ export const CurrentWeather: FC<ICurrStatus> = ({ city, timezone, current, daily
                         className="w-[120px] h-[120px] md:w-[180px] md:h-[180px]"
                     />
                     <div className="flex flex-row gap-4 text-[14px]">
-                        <p>Hight: {Math.trunc(daily[0].temp.max)}</p>
+                        <p>High: {Math.trunc(daily[0].temp.max)}</p>
                         <p>Low: {Math.trunc(daily[0].temp.min)}</p>
                     </div>
                 </div>
@@ -70,3 +70,4 @@ export const CurrentWeather: FC<ICurrStatus> = ({ city, timezone, current, daily
         </div>
     );
 };
+

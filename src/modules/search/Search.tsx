@@ -5,6 +5,8 @@ import { AsyncPaginate } from 'react-select-async-paginate';
 import { ISearchData } from '../../common/interfaces/interfaces';
 import { FetchLoadOptions } from '../../common/api/FetchLoadOptions';
 
+import customStyles from '@/src/styles/input-style';
+
 export const Search = ({ onSearchChange }: { onSearchChange: Function }) => {
     const [search, setSearch] = useState<ISearchData | null>(null);
 
@@ -20,6 +22,8 @@ export const Search = ({ onSearchChange }: { onSearchChange: Function }) => {
             value={search}
             onChange={handleOnChange}
             loadOptions={FetchLoadOptions}
+            styles={customStyles}
         />
     );
 };
+

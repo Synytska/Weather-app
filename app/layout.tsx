@@ -16,10 +16,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className="bg-sky w-full bg-no-repeat bg-center bg-cover">
-                <BackgroundLayout />
-                <BaseLayout>{children}</BaseLayout>
+            <body className="bg-black">
+                <div className="bg-sky w-full bg-no-repeat bg-center bg-cover">
+                    <BackgroundLayout />
+                    <BaseLayout>{children}</BaseLayout>
+                </div>
             </body>
         </html>
     );
 }
+
